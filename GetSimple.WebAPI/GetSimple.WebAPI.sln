@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Services", "1-Services", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Common", "0-Common", "{9E539A51-2AB1-433F-A962-8C68CE677B31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.API", "..\GetSimple.WebAPI.API\GetSimple.WebAPI.API.csproj", "{45586169-7D0A-463D-A1AE-7AE20A4ED0B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.API", "..\GetSimple.WebAPI.API\GetSimple.WebAPI.API.csproj", "{45586169-7D0A-463D-A1AE-7AE20A4ED0B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.AuthProvider", "..\GetSimple.WebAPI.AuthProvider\GetSimple.WebAPI.AuthProvider.csproj", "{7DEB98C9-B044-42B6-861A-DF6A0BC2E3F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.AuthProvider", "..\GetSimple.WebAPI.AuthProvider\GetSimple.WebAPI.AuthProvider.csproj", "{7DEB98C9-B044-42B6-861A-DF6A0BC2E3F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.Seguranca", "..\GetSimple.WebAPI.Seguranca\GetSimple.WebAPI.Seguranca.csproj", "{EE6811E0-88C9-4984-A9CF-F6E2263479F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.Seguranca", "..\GetSimple.WebAPI.Seguranca\GetSimple.WebAPI.Seguranca.csproj", "{EE6811E0-88C9-4984-A9CF-F6E2263479F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.Users", "..\GetSimple.WebAPI.User\GetSimple.WebAPI.Users.csproj", "{E32B6BA4-23FA-49FA-8808-699B5A06D73C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.Users", "..\GetSimple.WebAPI.User\GetSimple.WebAPI.Users.csproj", "{E32B6BA4-23FA-49FA-8808-699B5A06D73C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,5 @@
 ﻿using GetSimple.WebAPI.Seguranca;
+using GetSimple.WebAPI.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,12 +17,18 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        private readonly SignInManager<Usuario> _signInManager;
+        public LoginController(SignInManager<Usuario> signInManager)
+        {
+            _signInManager = signInManager;
+        }
         [HttpPost]
-        public IActionResult Token(LoginModel model)
+        public async Task<IActionResult> Token(LoginModel model)
         {
             if (ModelState.IsValid)
             {
-                if (model.Login == "admin" && model.Password == "123")
+                var result = await _signInManager.PasswordSignInAsync(model.Login, model.Password, true, true);
+                if (result.Succeeded)
                 {
                     var direitos = new[]
                     {

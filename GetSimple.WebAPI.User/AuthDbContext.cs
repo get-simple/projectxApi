@@ -7,7 +7,7 @@ using System.Text;
 
 namespace GetSimple.WebAPI.Users
 {
-    class AuthDbContext : IdentityDbContext<Usuario>
+    public class AuthDbContext : IdentityDbContext<Usuario>
     {
         public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
         {
