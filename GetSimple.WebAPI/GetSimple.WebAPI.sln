@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.AuthProvid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.Seguranca", "..\GetSimple.WebAPI.Seguranca\GetSimple.WebAPI.Seguranca.csproj", "{EE6811E0-88C9-4984-A9CF-F6E2263479F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.User", "..\GetSimple.WebAPI.User\GetSimple.WebAPI.User.csproj", "{E32B6BA4-23FA-49FA-8808-699B5A06D73C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.Users", "..\GetSimple.WebAPI.User\GetSimple.WebAPI.Users.csproj", "{E32B6BA4-23FA-49FA-8808-699B5A06D73C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
