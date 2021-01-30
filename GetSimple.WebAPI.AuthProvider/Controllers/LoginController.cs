@@ -29,11 +29,11 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                     };
 
-                    var chave = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("ibgl-webapi-authentication-valid"));
+                    var chave = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("getsimple-webapi-authentication-valid"));
                     var credenciais = new SigningCredentials(chave, SecurityAlgorithms.HmacSha256);
 
                     var token = new JwtSecurityToken(
-                        issuer: "IBGL.WebAPI.Login",
+                        issuer: "GetSimple.WebAPI.AuthProvider",
                         claims: direitos,
                         signingCredentials: credenciais,
                         expires: DateTime.Now.AddMinutes(30)
