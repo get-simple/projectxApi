@@ -1,6 +1,8 @@
+using GetSimple.WebAPI.User;
 using GetSimple.WebAPI.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,11 +32,23 @@ namespace GetSimple.WebAPI.AuthProvider
             {
                 options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr));
             });
+
             services.AddControllers();
+
+            services.AddTransient<AuthDbContext>();
+
+            services.AddIdentity<Usuario, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            }).AddEntityFrameworkStores<AuthDbContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -49,6 +63,11 @@ namespace GetSimple.WebAPI.AuthProvider
             {
                 endpoints.MapControllers();
             });
+
+            serviceProvider
+                .GetService<AuthDbContext>()
+                .Database
+                .Migrate();
         }
     }
 }

@@ -1,7 +1,6 @@
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.Seguranca\bin\Debug\netcoreapp3.1\GetSimple.WebAPI.Seguranca.deps.json
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.Seguranca\bin\Debug\netcoreapp3.1\GetSimple.WebAPI.Seguranca.dll
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.Seguranca\bin\Debug\netcoreapp3.1\GetSimple.WebAPI.Seguranca.pdb
-C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.Seguranca\obj\Debug\netcoreapp3.1\GetSimple.WebAPI.Seguranca.csprojAssemblyReference.cache
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.Seguranca\obj\Debug\netcoreapp3.1\GetSimple.WebAPI.Seguranca.AssemblyInfoInputs.cache
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.Seguranca\obj\Debug\netcoreapp3.1\GetSimple.WebAPI.Seguranca.AssemblyInfo.cs
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.Seguranca\obj\Debug\netcoreapp3.1\GetSimple.WebAPI.Seguranca.csproj.CoreCompileInputs.cache

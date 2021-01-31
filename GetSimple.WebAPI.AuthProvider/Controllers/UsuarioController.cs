@@ -1,5 +1,6 @@
 ﻿using GetSimple.WebAPI.Seguranca;
 using GetSimple.WebAPI.User;
+using GetSimple.WebAPI.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -32,9 +33,9 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    //await _signInManager.SignInAsync(user, isPersistent: true);
                     return Ok(model);
-                }
+                }               
             }
             return BadRequest();
         }

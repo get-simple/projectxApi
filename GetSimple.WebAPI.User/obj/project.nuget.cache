@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HpW5JJIqBgAkNob6ktMQ6BrzLqqYoIASDBuLGaSXfMMKoCiod7VTsjkbJV633wuJ/4DOZLwOfuWHAMe7n3i9BQ==",
+  "dgSpecHash": "rq5Iqwu3je+AW0QPDiHnhrZpvPilNn2f2KVEuGmPn2jV9fPh78P3sC8n3nipCRc6ppojy++e2gQhF20w4YCj9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\milar\\Documents\\GetSimple\\GetSimple-WebAPI\\GetSimple.WebAPI.User\\GetSimple.WebAPI.Users.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,8 @@
     "C:\\Users\\milar\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\milar\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\milar\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\milar\\.nuget\\packages\\mysqlconnector\\1.1.0\\mysqlconnector.1.1.0.nupkg.sha512",
+    "C:\\Users\\milar\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\5.0.0-alpha.2\\pomelo.entityframeworkcore.mysql.5.0.0-alpha.2.nupkg.sha512",
     "C:\\Users\\milar\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\milar\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\milar\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",

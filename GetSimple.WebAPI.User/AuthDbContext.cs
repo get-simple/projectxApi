@@ -7,17 +7,17 @@ using System.Text;
 
 namespace GetSimple.WebAPI.Users
 {
-    public class AuthDbContext : IdentityDbContext<Usuario>
+    public class AuthDbContext : DbContext
     {
-        public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
+        public AuthDbContext(DbContextOptions options) : base(options)
         {
-            //irá criar o banco e a estrutura de tabelas necessárias
-            Database.EnsureCreated();
         }
-        protected override void OnModelCreating(ModelBuilder builder)
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
-            builder.ApplyConfiguration<Usuario>(new UsuarioConfiguration());
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Usuario>().HasKey(t => t.Id);
         }
     }
 }

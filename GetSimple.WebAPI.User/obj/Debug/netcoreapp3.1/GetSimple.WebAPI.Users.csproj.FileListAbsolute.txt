@@ -1,7 +1,6 @@
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.User\bin\Debug\netcoreapp3.1\GetSimple.WebAPI.Users.deps.json
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.User\bin\Debug\netcoreapp3.1\GetSimple.WebAPI.Users.dll
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.User\bin\Debug\netcoreapp3.1\GetSimple.WebAPI.Users.pdb
-C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.User\obj\Debug\netcoreapp3.1\GetSimple.WebAPI.Users.csprojAssemblyReference.cache
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.User\obj\Debug\netcoreapp3.1\GetSimple.WebAPI.Users.AssemblyInfoInputs.cache
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.User\obj\Debug\netcoreapp3.1\GetSimple.WebAPI.Users.AssemblyInfo.cs
 C:\Users\milar\Documents\GetSimple\GetSimple-WebAPI\GetSimple.WebAPI.User\obj\Debug\netcoreapp3.1\GetSimple.WebAPI.Users.csproj.CoreCompileInputs.cache

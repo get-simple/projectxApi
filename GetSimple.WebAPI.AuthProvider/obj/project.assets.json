@@ -835,7 +835,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.2",
-          "Microsoft.EntityFrameworkCore": "5.0.2"
+          "Microsoft.EntityFrameworkCore": "5.0.2",
+          "Pomelo.EntityFrameworkCore.MySql": "5.0.0-alpha.2"
         },
         "compile": {
           "bin/placeholder/GetSimple.WebAPI.Users.dll": {}

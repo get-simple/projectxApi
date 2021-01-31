@@ -8,13 +8,7 @@ namespace GetSimple.WebAPI.Users
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.HasData(new Usuario
-            {
-                UserName = "admin",
-                Email = "admin@admin.com",
-                PasswordHash = "AQAAAAEAACcQAAAAED0tb8N23CW0B1uLCmdSzL1kfJKD1NqSU6VxzkJ/ATsHW8awVv+bBSmNiACpNR9Iqw==!@15Ab",
-                
-            });
+            builder.HasData(new Usuario());
         }
     }
 }
