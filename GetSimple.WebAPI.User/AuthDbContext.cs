@@ -11,6 +11,7 @@ namespace GetSimple.WebAPI.Users
     {
         public AuthDbContext(DbContextOptions options) : base(options)
         {
+            this.Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
