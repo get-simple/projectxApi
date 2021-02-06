@@ -9,11 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Common", "0-Common", "{9E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.Seguranca", "GetSimple.WebAPI.Seguranca\GetSimple.WebAPI.Seguranca.csproj", "{5C74B938-F46D-4E57-B1AF-192F05118A52}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.Users", "GetSimple.WebAPI.User\GetSimple.WebAPI.Users.csproj", "{60EDFB89-F742-4CFA-90C4-1B00D7683906}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.Modelos", "GetSimple.WebAPI.Modelos\GetSimple.WebAPI.Modelos.csproj", "{60EDFB89-F742-4CFA-90C4-1B00D7683906}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.AuthProvider", "GetSimple.WebAPI.AuthProvider\GetSimple.WebAPI.AuthProvider.csproj", "{D9515718-416C-41BF-AD51-59C5B717186F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetSimple.WebAPI.API", "GetSimple.WebAPI.API\GetSimple.WebAPI.API.csproj", "{0439FC1D-66B1-427D-91EC-B0FE1D18F032}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.Repositorio", "GetSimple.WebAPI.Repositorio\GetSimple.WebAPI.Repositorio.csproj", "{CEF12282-FC1B-470D-9E40-4D77DB40201A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.ConfiguracaoEF", "GetSimple.WebAPI.ConfiguracaoEF\GetSimple.WebAPI.ConfiguracaoEF.csproj", "{A426A692-FD91-479F-93DA-6BB100F84F3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetSimple.WebAPI.RegraDeNegocio", "GetSimple.WebAPI.RegraDeNegocio\GetSimple.WebAPI.RegraDeNegocio.csproj", "{43AB674C-C3D2-4290-BCE7-427791578B16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +43,18 @@ Global
 		{0439FC1D-66B1-427D-91EC-B0FE1D18F032}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0439FC1D-66B1-427D-91EC-B0FE1D18F032}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0439FC1D-66B1-427D-91EC-B0FE1D18F032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF12282-FC1B-470D-9E40-4D77DB40201A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF12282-FC1B-470D-9E40-4D77DB40201A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF12282-FC1B-470D-9E40-4D77DB40201A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF12282-FC1B-470D-9E40-4D77DB40201A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A426A692-FD91-479F-93DA-6BB100F84F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A426A692-FD91-479F-93DA-6BB100F84F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A426A692-FD91-479F-93DA-6BB100F84F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A426A692-FD91-479F-93DA-6BB100F84F3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43AB674C-C3D2-4290-BCE7-427791578B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43AB674C-C3D2-4290-BCE7-427791578B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43AB674C-C3D2-4290-BCE7-427791578B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43AB674C-C3D2-4290-BCE7-427791578B16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +64,9 @@ Global
 		{60EDFB89-F742-4CFA-90C4-1B00D7683906} = {9E539A51-2AB1-433F-A962-8C68CE677B31}
 		{D9515718-416C-41BF-AD51-59C5B717186F} = {E9332AAF-00AF-4567-8B1A-050C6C7731A7}
 		{0439FC1D-66B1-427D-91EC-B0FE1D18F032} = {E9332AAF-00AF-4567-8B1A-050C6C7731A7}
+		{CEF12282-FC1B-470D-9E40-4D77DB40201A} = {9E539A51-2AB1-433F-A962-8C68CE677B31}
+		{A426A692-FD91-479F-93DA-6BB100F84F3E} = {9E539A51-2AB1-433F-A962-8C68CE677B31}
+		{43AB674C-C3D2-4290-BCE7-427791578B16} = {9E539A51-2AB1-433F-A962-8C68CE677B31}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F65C57FC-DB03-42D5-8576-9078C9B41C2F}

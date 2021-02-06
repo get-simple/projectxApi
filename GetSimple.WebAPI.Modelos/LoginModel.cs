@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GetSimple.WebAPI.Seguranca
+namespace GetSimple.WebAPI.Modelos
 {
     public class LoginModel
     {

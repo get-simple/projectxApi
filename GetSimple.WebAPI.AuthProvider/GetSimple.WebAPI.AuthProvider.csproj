@@ -15,8 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GetSimple.WebAPI.ConfiguracaoEF\GetSimple.WebAPI.ConfiguracaoEF.csproj" />
+    <ProjectReference Include="..\GetSimple.WebAPI.RegraDeNegocio\GetSimple.WebAPI.RegraDeNegocio.csproj" />
     <ProjectReference Include="..\GetSimple.WebAPI.Seguranca\GetSimple.WebAPI.Seguranca.csproj" />
-    <ProjectReference Include="..\GetSimple.WebAPI.User\GetSimple.WebAPI.Users.csproj" />
+    <ProjectReference Include="..\GetSimple.WebAPI.Modelos\GetSimple.WebAPI.Modelos.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GetSimple.WebAPI.Seguranca
+namespace GetSimple.WebAPI.Modelos
 {
     public class RegisterModel
     {

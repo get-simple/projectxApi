@@ -1,24 +1,26 @@
-﻿using GetSimple.WebAPI.User;
+﻿using GetSimple.WebAPI.Modelos;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GetSimple.WebAPI.Users
+namespace GetSimple.WebAPI.ConfiguracaoEF
 {
     public class AuthDbContext : DbContext
     {
+        public DbSet<Usuario> Usuarios { get; set; }
         public AuthDbContext(DbContextOptions options) : base(options)
         {
-            this.Database.Migrate();
+            Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Usuario>().HasKey(t => t.Id);
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+                
         }
     }
 }

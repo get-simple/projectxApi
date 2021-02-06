@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace GetSimple.WebAPI.Users.Migrations
+namespace GetSimple.WebAPI.ConfiguracaoEF.Migrations
 {
-    public partial class DB_Auth_inicial : Migration
+    public partial class inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

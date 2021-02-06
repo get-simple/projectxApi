@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GetSimple.WebAPI.Repositorio\GetSimple.WebAPI.Repositorio.csproj" />
+    <ProjectReference Include="..\GetSimple.WebAPI.Modelos\GetSimple.WebAPI.Modelos.csproj" />
+  </ItemGroup>
+
+</Project>

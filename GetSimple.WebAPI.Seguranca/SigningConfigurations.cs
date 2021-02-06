@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GetSimple.WebAPI.Seguranca
 {
-    class SigningConfigurations
+    public class SigningConfigurations
     {
         private readonly string secret = "GetSimple_WebAPI_!195080@!";
         public SecurityKey Key { get; }
