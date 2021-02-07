@@ -10,6 +10,7 @@ namespace GetSimple.WebAPI.Repositorio
     public class UsuarioRepositorio
     {
         private readonly UserManager<Usuario> _userManager;
+        private readonly IRepositorio<Usuario> _repositorio;
         public UsuarioRepositorio(UserManager<Usuario> userManager)
         {
             _userManager = userManager;
@@ -23,6 +24,18 @@ namespace GetSimple.WebAPI.Repositorio
                 return user;
             }
             return null;
+        }
+
+        public async Task<bool> DeletarDbContext(string Id)
+        {
+            var usuario = await _userManager.FindByIdAsync(Id);
+            var model = await _userManager.DeleteAsync(usuario);
+
+            if (model.Succeeded)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

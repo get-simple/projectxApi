@@ -1,8 +1,10 @@
 ﻿using GetSimple.WebAPI.Modelos;
 using GetSimple.WebAPI.Seguranca;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -19,7 +21,14 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
         {
             _signInManager = signInManager;
         }
+
         [HttpPost]
+        [AllowAnonymous]
+        [SwaggerOperation(Summary = "Loga com o usuário na base.")]
+        [ProducesResponseType(statusCode: 200, Type = typeof(string))]
+        [ProducesResponseType(statusCode: 400)]
+        [ProducesResponseType(statusCode: 401)]
+        [ProducesResponseType(statusCode: 404)]
         public async Task<IActionResult> Token(LoginModel model)
         {
             if (ModelState.IsValid)

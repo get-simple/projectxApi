@@ -14,10 +14,16 @@ namespace GetSimple.WebAPI.RegraDeNegocio
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
-        public async Task<Usuario> ValidaInformacoes(RegisterModel model)
+        public async Task<Usuario> RegrasParaIncluir(RegisterModel model)
         {
             var usuario = await _usuarioRepositorio.IncluirDbContext(model);
             return usuario;
         } 
+
+        public async Task<bool> RegrasParaDeletar(string Id)
+        {
+            return await _usuarioRepositorio.DeletarDbContext(Id);
+            
+        }
     }
 }

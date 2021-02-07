@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using GetSimple.WebAPI.AuthProvider.Configuracao;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GetSimple.WebAPI.AuthProvider
 {
@@ -31,7 +33,6 @@ namespace GetSimple.WebAPI.AuthProvider
 
             services.AddControllers();
 
-            //services.AddTransient<AuthDbContext>();
 
             services.AddIdentity<Usuario, IdentityRole>(options =>
             {
@@ -41,7 +42,13 @@ namespace GetSimple.WebAPI.AuthProvider
                 options.Password.RequireLowercase = false;
             }).AddEntityFrameworkStores<AuthDbContext>();
 
+            services.Configure<ApiBehaviorOptions>(options => {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
+            services.ResolveSwagger();
             services.ResolveDependencias();
+            services.ResolveAutenticacao();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +57,8 @@ namespace GetSimple.WebAPI.AuthProvider
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GetSimple.WebAPI Versão 1.0"));
             }
 
             app.UseRouting();

@@ -1,8 +1,10 @@
 ﻿using GetSimple.WebAPI.Modelos;
 using GetSimple.WebAPI.RegraDeNegocio;
 using GetSimple.WebAPI.Seguranca;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Threading.Tasks;
 
 namespace GetSimple.WebAPI.AuthProvider.Controllers
@@ -19,11 +21,16 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Incluir(RegisterModel model)
+        [AllowAnonymous]
+        [SwaggerOperation(Summary = "Registra um novo usuário na base.")]
+        [ProducesResponseType(statusCode: 200, Type = typeof(Usuario))]
+        [ProducesResponseType(statusCode: 400)]
+        [ProducesResponseType(statusCode: 404)]
+        public async Task<IActionResult> Incluir([FromBody] RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                var retorno = await _usuarioNegocios.ValidaInformacoes(model);
+                var retorno = await _usuarioNegocios.RegrasParaIncluir(model);
                 
                 if (retorno != null)
                 {
@@ -31,6 +38,24 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
                 }               
             }
             return BadRequest();
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        [SwaggerOperation(Summary = "Deleta o usuário da base pelo ID.")]
+        [ProducesResponseType(statusCode: 204)]
+        [ProducesResponseType(statusCode: 404)]
+        public async Task<IActionResult> Deletar(string Id)
+        {
+            if (ModelState.IsValid)
+            {
+                var retorno = await _usuarioNegocios.RegrasParaDeletar(Id);
+                if (retorno)
+                {
+                    return NoContent();
+                }
+            }
+            return NotFound();
         }
     }
 }
