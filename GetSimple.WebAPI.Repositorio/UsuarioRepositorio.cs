@@ -11,9 +11,13 @@ namespace GetSimple.WebAPI.Repositorio
     {
         private readonly UserManager<Usuario> _userManager;
         private readonly IRepositorio<Usuario> _repositorio;
-        public UsuarioRepositorio(UserManager<Usuario> userManager)
+        private readonly SignInManager<Usuario> _signInManager;
+        public UsuarioRepositorio(
+            UserManager<Usuario> userManager,
+            SignInManager<Usuario> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
         public async Task<Usuario> IncluirDbContext(RegisterModel model)
         {
@@ -21,6 +25,7 @@ namespace GetSimple.WebAPI.Repositorio
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                await _signInManager.SignInAsync(user, isPersistent: false);
                 return user;
             }
             return null;

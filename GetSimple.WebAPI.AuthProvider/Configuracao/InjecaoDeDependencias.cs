@@ -17,6 +17,7 @@ namespace GetSimple.WebAPI.AuthProvider.Configuracao
             services.AddTransient<UsuarioNegocios>();
             services.AddTransient <UsuarioRepositorio>();
             services.AddTransient <UserManager<Usuario>>();
+            services.AddTransient<SignInManager<Usuario>>();
             services.AddTransient<IRepositorio<Usuario>, RepositorioBaseEF<Usuario>>();
 
             return services;

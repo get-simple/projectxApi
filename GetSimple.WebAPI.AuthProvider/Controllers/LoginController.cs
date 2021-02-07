@@ -12,23 +12,18 @@ using System.Threading.Tasks;
 
 namespace GetSimple.WebAPI.AuthProvider.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
         private readonly SignInManager<Usuario> _signInManager;
+
         public LoginController(SignInManager<Usuario> signInManager)
         {
             _signInManager = signInManager;
         }
 
         [HttpPost]
-        [AllowAnonymous]
-        [SwaggerOperation(Summary = "Loga com o usuário na base.")]
-        [ProducesResponseType(statusCode: 200, Type = typeof(string))]
-        [ProducesResponseType(statusCode: 400)]
-        [ProducesResponseType(statusCode: 401)]
-        [ProducesResponseType(statusCode: 404)]
         public async Task<IActionResult> Token(LoginModel model)
         {
             if (ModelState.IsValid)
@@ -36,6 +31,7 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Login, model.Password, true, true);
                 if (result.Succeeded)
                 {
+                    //cria token (header + payload >> direitos + signature)
                     var direitos = new[]
                     {
                         new Claim(JwtRegisteredClaimNames.Sub, model.Login),
@@ -46,14 +42,15 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
                     var credenciais = new SigningCredentials(chave, SecurityAlgorithms.HmacSha256);
 
                     var token = new JwtSecurityToken(
-                        issuer: "GetSimple.WebAPI.AuthProvider",
+                        issuer: "GetSimple.WebAPI",
+                        audience: "Usuarios",
                         claims: direitos,
                         signingCredentials: credenciais,
                         expires: DateTime.Now.AddMinutes(30)
-                        );
+                    );
 
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-                    return Ok(tokenString); //200
+                    return Ok(tokenString);
                 }
                 return Unauthorized(); //401
             }

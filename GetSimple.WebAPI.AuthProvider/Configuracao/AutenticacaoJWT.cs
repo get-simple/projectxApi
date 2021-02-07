@@ -15,20 +15,20 @@ namespace GetSimple.WebAPI.AuthProvider.Configuracao
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";
                 options.DefaultChallengeScheme = "JwtBearer";
-            }).AddJwtBearer("JwtBearer", options =>
-            {
+            }).AddJwtBearer("JwtBearer", options => {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("GetSimple-WebAPI-Authentication-Valid")),
-                    ClockSkew = TimeSpan.FromMinutes(10),
-                    ValidIssuer = "GetSimple.WebAPI.AuthProvider"
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("getsimple-webapi-authentication-valid")),
+                    ClockSkew = TimeSpan.FromMinutes(30),
+                    ValidIssuer = "GetSimple.WebAPI",
+                    ValidAudience = "Usuarios",
                 };
             });
-            
+
             return services;
         }
     }

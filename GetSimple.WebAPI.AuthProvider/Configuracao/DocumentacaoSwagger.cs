@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using GetSimple.WebAPI.AuthProvider.Filtros;
 
 namespace GetSimple.WebAPI.AuthProvider.Configuracao
 {
@@ -23,6 +24,7 @@ namespace GetSimple.WebAPI.AuthProvider.Configuracao
                 });
 
                 options.EnableAnnotations();
+                options.OperationFilter<AuthResponsesOperationFilter>();
             });
 
 

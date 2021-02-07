@@ -11,6 +11,7 @@ using System;
 using GetSimple.WebAPI.AuthProvider.Configuracao;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace GetSimple.WebAPI.AuthProvider
 {
@@ -32,7 +33,6 @@ namespace GetSimple.WebAPI.AuthProvider
             });
 
             services.AddControllers();
-
 
             services.AddIdentity<Usuario, IdentityRole>(options =>
             {
@@ -63,8 +63,8 @@ namespace GetSimple.WebAPI.AuthProvider
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

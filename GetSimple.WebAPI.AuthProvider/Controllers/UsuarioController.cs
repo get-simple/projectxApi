@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace GetSimple.WebAPI.AuthProvider.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsuarioController : ControllerBase
     {
         private readonly UsuarioNegocios _usuarioNegocios;
@@ -41,7 +43,6 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
         [SwaggerOperation(Summary = "Deleta o usuário da base pelo ID.")]
         [ProducesResponseType(statusCode: 204)]
         [ProducesResponseType(statusCode: 404)]
