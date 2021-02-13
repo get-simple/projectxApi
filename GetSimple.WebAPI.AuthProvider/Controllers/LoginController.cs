@@ -28,13 +28,13 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Login, model.Password, true, true);
+                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, true, true);
                 if (result.Succeeded)
                 {
                     //cria token (header + payload >> direitos + signature)
                     var direitos = new[]
                     {
-                        new Claim(JwtRegisteredClaimNames.Sub, model.Login),
+                        new Claim(JwtRegisteredClaimNames.Sub, model.UserName),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                     };
 
