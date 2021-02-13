@@ -9,8 +9,8 @@ namespace GetSimple.WebAPI.ConfiguracaoEF
 {
     public class AuthDbContext : IdentityDbContext<Usuario>
     {
-        //public DbSet<Usuario> Usuarios { get; set; }
-        public AuthDbContext(DbContextOptions options) : base(options)
+        public DbSet<Usuario> Usuario { get; set; }
+        public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
         {
             Database.Migrate();
         }
