@@ -3,6 +3,7 @@ using GetSimple.WebAPI.Seguranca;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
@@ -17,10 +18,15 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
     public class LoginController : ControllerBase
     {
         private readonly SignInManager<Usuario> _signInManager;
+        private readonly IConfiguration _configuration;
 
-        public LoginController(SignInManager<Usuario> signInManager)
+        public LoginController(
+            SignInManager<Usuario> signInManager,
+            IConfiguration configuration
+            )
         {
             _signInManager = signInManager;
+            _configuration = configuration;
         }
 
         [HttpPost]
@@ -28,6 +34,8 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
         {
             if (ModelState.IsValid)
             {
+                var key = _configuration["KeyJWT"];
+
                 var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, true, true);
                 if (result.Succeeded)
                 {
@@ -38,19 +46,17 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                     };
 
-                    var chave = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("getsimple-webapi-authentication-valid"));
+                    var chave = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(key));
                     var credenciais = new SigningCredentials(chave, SecurityAlgorithms.HmacSha256);
 
                     var token = new JwtSecurityToken(
-                        issuer: "GetSimple.WebAPI",
-                        audience: "Usuarios",
                         claims: direitos,
                         signingCredentials: credenciais,
-                        expires: DateTime.Now.AddMinutes(30)
+                        expires: DateTime.Now.AddHours(12)
                     );
 
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-                    return Ok(tokenString);
+                    return Ok(new { JWTtoken = tokenString });
                 }
                 return Unauthorized(); //401
             }

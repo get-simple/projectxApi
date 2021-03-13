@@ -1,8 +1,6 @@
 ﻿using GetSimple.WebAPI.Modelos;
 using GetSimple.WebAPI.RegraDeNegocio;
-using GetSimple.WebAPI.Seguranca;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Threading.Tasks;
