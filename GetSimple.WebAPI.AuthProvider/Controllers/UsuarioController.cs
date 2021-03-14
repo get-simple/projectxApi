@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GetSimple.WebAPI.AuthProvider.Controllers
 {
 
-    [Route("api/[controller]")]
+    [Route("api/Usuario/")]
     [ApiController]
     [Authorize]
     public class UsuarioController : ControllerBase
@@ -38,6 +38,16 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
                 }               
             }
             return BadRequest();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("GetUsername/{username}")]
+        public async Task<IActionResult> GetUsername(string username)
+        {
+            var response = await _usuarioNegocios.QueryUsername(username);
+
+            return Ok(response);
         }
 
         [HttpDelete("{id}")]

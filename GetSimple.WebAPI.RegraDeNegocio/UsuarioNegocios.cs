@@ -25,5 +25,10 @@ namespace GetSimple.WebAPI.RegraDeNegocio
             return await _usuarioRepositorio.DeletarDbContext(Id);
             
         }
+
+        public async Task<bool> QueryUsername(string username)
+        {
+            return await _usuarioRepositorio.ExistUsername(username);
+        }
     }
 }

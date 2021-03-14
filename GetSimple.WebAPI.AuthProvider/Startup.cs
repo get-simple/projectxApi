@@ -12,6 +12,7 @@ using GetSimple.WebAPI.AuthProvider.Configuracao;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace GetSimple.WebAPI.AuthProvider
 {
@@ -32,7 +33,10 @@ namespace GetSimple.WebAPI.AuthProvider
                 options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr));
             });
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
 
             services.AddIdentity<Usuario, IdentityRole>(options =>
             {
@@ -45,6 +49,13 @@ namespace GetSimple.WebAPI.AuthProvider
             services.Configure<ApiBehaviorOptions>(options => {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+            });
+
+            services.AddCors();
 
             services.ResolveSwagger();
             services.ResolveDependencias();
@@ -60,6 +71,14 @@ namespace GetSimple.WebAPI.AuthProvider
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GetSimple.WebAPI Versão 1.0"));
             }
+
+            app.UseResponseCompression();
+
+            app.UseCors(options => {
+                options.AllowAnyOrigin();
+                options.AllowAnyHeader();
+                options.AllowAnyMethod();
+            });
 
             app.UseRouting();
 
