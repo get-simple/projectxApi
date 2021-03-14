@@ -1,4 +1,5 @@
-﻿using GetSimple.WebAPI.Modelos;
+﻿using GetSimple.WebAPI.ConfiguracaoEF;
+using GetSimple.WebAPI.Modelos;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,13 @@ namespace GetSimple.WebAPI.Repositorio
         private readonly UserManager<Usuario> _userManager;
         private readonly IRepositorio<Usuario> _repositorio;
         private readonly SignInManager<Usuario> _signInManager;
+        private readonly AuthDbContext _authDbContext;
         public UsuarioRepositorio(
             UserManager<Usuario> userManager,
-            SignInManager<Usuario> signInManager)
+            SignInManager<Usuario> signInManager,
+            AuthDbContext authDbContext)
         {
+            _authDbContext = authDbContext;
             _userManager = userManager;
             _signInManager = signInManager;
         }
@@ -41,6 +45,16 @@ namespace GetSimple.WebAPI.Repositorio
                 return true;
             }
             return false;
+        }
+
+        public async Task<bool> ExistUsername(string username)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+
+            if (user == null)
+                return false;
+            
+            return true;
         }
     }
 }

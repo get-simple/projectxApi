@@ -56,7 +56,7 @@ namespace GetSimple.WebAPI.AuthProvider.Controllers
                     );
 
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-                    return Ok(new { JWTtoken = tokenString });
+                    return Ok(new { jwtToken = tokenString });
                 }
                 return Unauthorized(); //401
             }
